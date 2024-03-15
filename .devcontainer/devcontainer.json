@@ -5,7 +5,11 @@
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	// "image": "mcr.microsoft.com/devcontainers/java:1-21-bullseye",
 	"build": {
-		"dockerfile": "Dockerfile"
+		"dockerfile": "Dockerfile",
+		"args": {
+			"USUARIO_WILDFLY_NOME": "usuario",
+			"USUARIO_WILDFLY_SENHA": "SenhaWildfly"
+		}
 	},
 
 	"features": {
@@ -18,13 +22,14 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"vmware.vscode-boot-dev-pack"
+				"vmware.vscode-boot-dev-pack",
+				"redhat.vscode-server-connector"
 			]
 		}
-	}
+	},
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+	// Wildfly expõe as portas 8080 e 9990
+	"forwardPorts": [ 8080, 9990 ]
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "java -version",

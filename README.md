@@ -5,9 +5,18 @@ Este repositório guarda códigos desenvolvidos no curso "Java Avançado" promov
 O repositório possui configurações para rodar em [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) no VSCode.
 Ao abrir a pasta do repositório no VSCode, ele oferecerá no canto inferior direito uma sugestão para reabrir a pasta no container. Aceite-a e o VSCode invocará a construção do container e reabrirá o editor no container.
 
+### Adicionando o Wildfly no Server Connector no VSCode
+
+A extensão [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector) já vem instalada no ambiente, mas o Wildfly não vem configurado. Para configurá-lo, siga o seguinte passo-a-passo:
+1. Vá no accordion Servers na aba Explorer do VSCode, clique no botão "Create New Server" e selecione "No" na pergunta sobre baixar um servidor da internet. Alternativamente, você pode apertar F1 e digitar "_> Servers: Add Local Server_" e presionar Enter.
+2. Preencha o caminho "/opt/jboss/wildfly/" e pressione Enter.
+3. Na janela que abrir, recomenda-se trocar o nome do servidor para "Wildfly 30" para identificar corretamente a versão instalada.
+
+Caso não deseje utilizar a extensão Server Connector para gerenciar o Wildfly, o workspace possui também uma tarefa (Task) do VSCode chamada "Rodar Wildfly" que inicia o servidor.
+
 ## FAQ
 
-### Encontrei o erro "INTERNET NOT REACHABLE" na hora de criar o container
+### Como resolver o erro "INTERNET NOT REACHABLE" na hora de criar o container?
 
 Ao tentar criar o container estando atrás de um proxy ou em uma rede com inspeção SSL habilitada (em que se usa um certificado injetado na conexão), o processo de criação do Dev Container pode se encerrar com uma mensagem de erro similar à seguinte:
 
